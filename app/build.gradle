@@ -30,4 +30,5 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'org.immutables:gson:2.1.0.alpha'
+    compile 'com.squareup.okhttp:okhttp:2.5.0'
 }

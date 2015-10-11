@@ -1,25 +1,24 @@
 package com.example.nour__000.popmovies;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MovieDetail extends ActionBarActivity  {
+public class Favorite extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_movie);
-
+        setContentView(R.layout.activity_favorite);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_detail_movie, menu);
+        getMenuInflater().inflate(R.menu.menu_favorite, menu);
         return true;
     }
 
@@ -32,7 +31,6 @@ public class MovieDetail extends ActionBarActivity  {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            startActivity(new Intent(this, SettingActivity.class));
             return true;
         }
 

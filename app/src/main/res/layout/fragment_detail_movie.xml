@@ -1,7 +1,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:fillViewport="true" >
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    >
 
 
 
@@ -108,29 +109,36 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="Trailer" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Trailer"
+            android:background="#ffd72282" />
 
         <ListView
-            android:id="@+id/listView1"
+            android:id="@+id/listTrailer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dip"
-            android:background="#ffd72282" >
+            >
         </ListView>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dip"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:gravity="center_vertical"
-            android:text="Reviews" />
+            android:text="Reviews"
+            android:background="#ffd72282"
+            />
+
 
         <ListView
-            android:id="@+id/listView2"
+            android:id="@+id/listReview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dip"
-            android:background="#ffd72282" >
+            android:paddingTop="10dip"
+
+            >
         </ListView>
     </LinearLayout>
 

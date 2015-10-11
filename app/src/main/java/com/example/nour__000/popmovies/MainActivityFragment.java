@@ -1,10 +1,10 @@
 package com.example.nour__000.popmovies;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,54 +24,10 @@ public class MainActivityFragment extends Fragment {
     public MainActivityFragment() {
 
     }
-//public  Task task = new Task ();
+
+    //public  Task task = new Task ();
     private GridAdapter myAdapter;
     GridView gridview;
-
-
-/*    @Override
-    public void onStart() {
-        super.onStart();
-
-        //Start download
-        String Sort_By = getPreferredLocation(getActivity());
-        if(Sort_By=="favourite"){
-
-
-        }else {
-                Toast.makeText(getActivity(),
-                        "You Don't have any Favourite",
-                        Toast.LENGTH_SHORT)
-                        .show();
-
-            }
-        }else {
-            mGridData.clear();
-            new Task().execute(Sort_By);
-        }
-
-    }
-
-    void onLocationChanged( ) {
-        updateMovies();
-        //   getLoaderManager().restartLoader(FORECAST_LOADER, null, this);
-    }
-    private void updateMovies() {
-        FetchMoviesTask weatherTask = new FetchMoviesTask();
-        String location = getPreferredLocation(getActivity());
-        weatherTask.execute(location);
-    }
-
-    public static String getPreferredLocation(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getString(context.getString(R.string.pref_sort_key),
-                context.getString(R.string.pref_sort_default));
-    } */
-
-
-
-
-
 
 
     @Override
@@ -83,22 +39,25 @@ public class MainActivityFragment extends Fragment {
         View();
 
 
-
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Response.ResultsEntity gsonobj = new Response.ResultsEntity();
                 gsonobj = (Response.ResultsEntity) myAdapter.getItem(position);
-                Intent intent = new Intent(getActivity(), MovieDetail.class);
-                intent.putExtra("movieId", gsonobj.getId());
-                startActivity(intent);
+//                Intent intent = new Intent(getActivity(), MovieDetail.class);
+//                intent.putExtra("movieId", gsonobj.getId());
+//                intent.putExtra("title", gsonobj.getTitle());
+//                intent.putExtra("overview", gsonobj.getOverview());
+//                intent.putExtra("release_date", gsonobj.getRelease_date());
+//                intent.putExtra("poster", gsonobj.getPoster_path());
+//                intent.putExtra("Rating", gsonobj.getVote_average());
 
-
-
+               // startActivity(intent);
+                    ((Callback) getActivity()).onSelectedItem(gsonobj);
             }
         });
-        return rootView ;
+        return rootView;
     }
 
     @Override
@@ -128,20 +87,19 @@ public class MainActivityFragment extends Fragment {
 
 
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                Log.e("main", e.toString());
             } catch (ExecutionException e) {
-                e.printStackTrace();
+                Log.e("main", e.toString());
             }
         }
 
         if (sortBy.equals(getString(R.string.pref_most_popular))) {
-            if (task==null){
+            if (task == null) {
 
                 Response.ResultsEntity Responseob = new Response.ResultsEntity();
 
 
-            }
-            else {
+            } else {
                 try {
                     String Str2 = task.execute("http://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=0df39df7b6499eab481883048862b53f").get();
                     Response Responseobject = new Response();
@@ -152,14 +110,24 @@ public class MainActivityFragment extends Fragment {
 
 
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    Log.e("main", e.toString());
                 } catch (ExecutionException e) {
-                    e.printStackTrace();
+                    Log.e("main", e.toString());
                 }
             }
-        }
+
+
+
+
+
+                }
+
+
+            }
+
+    public interface Callback {
+        void onSelectedItem(Response.ResultsEntity movie);
     }
+        }
 
 
-
-}

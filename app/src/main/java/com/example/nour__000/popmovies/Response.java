@@ -1,5 +1,8 @@
 package com.example.nour__000.popmovies;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -48,7 +51,7 @@ public class Response implements Serializable  {
         return results;
     }
 
-    public static class ResultsEntity {
+    public static class ResultsEntity implements Parcelable {
         /**
          * adult : false
          * backdrop_path : /t5KONotASgVKq4N19RyhIthWOPG.jpg
@@ -191,6 +194,27 @@ public class Response implements Serializable  {
 
         public List<Integer> getGenre_ids() {
             return genre_ids;
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int i) {
+            dest.writeString(backdrop_path);
+            dest.writeInt(id);
+            dest.writeString(original_language);
+            dest.writeString(original_title);
+            dest.writeString(overview);
+            dest.writeString(release_date);
+            dest.writeString(poster_path);
+            dest.writeDouble(popularity);
+            dest.writeString(title);
+            dest.writeDouble(vote_average);
+            dest.writeInt(vote_count);
+
         }
     }
 }

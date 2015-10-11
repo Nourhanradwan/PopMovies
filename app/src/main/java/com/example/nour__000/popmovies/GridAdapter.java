@@ -14,11 +14,11 @@ import java.util.List;
 /**
  * Created by nour__000 on 9/18/2015.
  */
-public class GridAdapter extends BaseAdapter{
+public class GridAdapter extends BaseAdapter {
 
     private List<Response.ResultsEntity> item;
-    private Context context ;
-    private LayoutInflater inflater ;
+    private Context context;
+    private LayoutInflater inflater;
 
     public GridAdapter(Context context, List<Response.ResultsEntity> item) {
         this.context = context;
@@ -42,21 +42,21 @@ public class GridAdapter extends BaseAdapter{
     }
 
 
-
-
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowview = inflater.inflate(R.layout.movie_item_layout ,viewGroup ,false);
+        if (view == null) {
+            view = inflater.inflate(R.layout.movie_item_layout, viewGroup, false);
+        }
         Response.ResultsEntity opject = (Response.ResultsEntity) getItem(position);
-        ImageView img = (ImageView) rowview.findViewById(R.id.image);
+        ImageView img = (ImageView) view.findViewById(R.id.image);
         String imageurl = opject.getPoster_path();
 
 
-        Picasso.with(context).load("https://image.tmdb.org/t/p/w185" + imageurl).into(img);
+        Picasso.with(context).load("https://image.tmdb.org/t/p/w185" + imageurl).resize(185, 250).into(img);
 
-        return rowview ;
+        return view;
     }
 
 

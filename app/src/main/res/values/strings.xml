@@ -3,6 +3,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_detail_movie">DetailMovie</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_favorite" translatable="false"> Favorites </string>
 
     <!--&lt;!&ndash; Label for the temperature units preference [CHAR LIMIT=30] &ndash;&gt;-->
     <!--<string name="sort_label">Sort By </string>-->
@@ -24,8 +25,11 @@
     <string name="sort_by">Sorting</string>
     <string name="sort_by_most_popular"> Most_popular </string>
     <string name="sort_by_highest_rated"> Highest_rated </string>
+    <string name="sort_by_Favorite">Favorite</string>
     <string name="pref_units_key" translatable="false">units</string>
-    <string name="pref_most_popular" translatable="false"> most_popular</string>
-    <string name="pref_highest_rated" translatable="false"> highest_rated</string>
+    <string name="pref_most_popular" translatable="false"> most popular</string>
+    <string name="pref_highest_rated" translatable="false"> highest rated</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>
 

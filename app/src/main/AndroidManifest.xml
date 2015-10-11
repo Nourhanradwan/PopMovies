@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.nour__000.popmovies" >
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,24 +18,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".SettingActivity"
             android:label="@string/title_activity_settings"
             android:parentActivityName=".MainActivity" >
-            <meta-data
+            <meta-dataes
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.nour__000.popmovies.MainActivity" />
         </activity>
         <activity
             android:name=".MovieDetail"
             android:label="@string/title_activity_detail_movie"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MovieDetail"/>
-
+                android:value=".MovieDetail" />
         </activity>
+        <activity
+            android:name=".Favorite"
+            android:label="@string/title_activity_favorite" >
+        </activity>
+
     </application>
 
 </manifest>
