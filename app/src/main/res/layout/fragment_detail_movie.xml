@@ -1,0 +1,138 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true" >
+
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.nour__000.popmovies.MovieDetailFragment"
+    android:id="@+id/detail_activity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="title"
+        android:id="@+id/title"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        android:padding="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:background="#ffd72282"
+        android:textColor="#ffffff"
+
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageviewditals"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/title"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="release date"
+                android:id="@+id/release_date"
+                android:layout_below="@+id/rating"
+                android:layout_toRightOf="@+id/imageviewditals"
+                android:layout_alignRight="@+id/rating"
+                android:layout_alignEnd="@+id/rating"
+                android:padding="10dp"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="88"
+                android:id="@+id/rating"
+                android:layout_below="@+id/title"
+                android:layout_toRightOf="@+id/imageviewditals"
+                android:padding="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mark as favorite"
+                android:id="@+id/button"
+                android:background="#ffd72282"/>
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="overview"
+        android:id="@+id/overview"
+        android:gravity="left"
+        android:padding="10dp"
+        android:layout_below="@+id/imageviewditals"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dip" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Trailer" />
+
+        <ListView
+            android:id="@+id/listView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:background="#ffd72282" >
+        </ListView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:gravity="center_vertical"
+            android:text="Reviews" />
+
+        <ListView
+            android:id="@+id/listView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:background="#ffd72282" >
+        </ListView>
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>
