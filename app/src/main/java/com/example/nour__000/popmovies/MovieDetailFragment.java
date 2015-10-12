@@ -64,7 +64,7 @@ public class MovieDetailFragment extends Fragment {
     String Poster;
     String Release_date;
     String Title;
-    Float Rating;
+    double Rating;
 
 
     @Override
@@ -76,21 +76,21 @@ public class MovieDetailFragment extends Fragment {
 
         Bundle bundle = getActivity().getIntent().getExtras();
         if (bundle != null) {
-        movieID = bundle.getInt("movieId");
-        Overview = bundle.getString("overview");
-        Release_date = bundle.getString("rselease_date");
-        Poster = bundle.getString("poster");
-        Title = bundle.getString("title");
-        Rating = bundle.getFloat("Rating");}
-        else
-        {
+            movieID = bundle.getInt("movieId");
+            Overview = bundle.getString("overview");
+            Release_date = bundle.getString("rselease_date");
+            Poster = bundle.getString("poster");
+            Title = bundle.getString("title");
+            Rating = bundle.getDouble("Rating");
+        } else {
             Bundle getArgus = getArguments();
-            movieID = getArgus.getParcelable("movieId");
-            Overview = bundle.getParcelable("overview");
-            Release_date = bundle.getParcelable("rselease_date");
-            Poster = bundle.getParcelable("poster");
-            Title = bundle.getParcelable("title");
-            Rating = bundle.getParcelable("Rating");
+            Response.ResultsEntity movie = getArgus.getParcelable("movieId");
+            movieID = movie.getId();
+            Overview = movie.getOverview();
+            Release_date = movie.getRelease_date();
+            Poster = movie.getPoster_path();
+            Title = movie.getTitle();
+            Rating = movie.getVote_average();
 
         }
 
@@ -113,7 +113,7 @@ public class MovieDetailFragment extends Fragment {
 //                movieDB.setTrailersById(id, names, keys);
 //                movieDB.setReviewsById(id, author, contents);
                 DbSource dbsource = new DbSource(getActivity());
-                boolean check = dbsource.addmovie(movieID, Title, Release_date, Overview, Rating, Poster);
+                boolean check = dbsource.addmovie(movieID, Title, Release_date, Overview, (float) Rating, Poster);
                 Toast.makeText(getActivity(), check + "", Toast.LENGTH_LONG).show();
                 ;
 

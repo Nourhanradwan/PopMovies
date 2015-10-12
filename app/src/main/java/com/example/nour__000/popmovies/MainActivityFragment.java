@@ -53,8 +53,8 @@ public class MainActivityFragment extends Fragment {
 //                intent.putExtra("poster", gsonobj.getPoster_path());
 //                intent.putExtra("Rating", gsonobj.getVote_average());
 
-               // startActivity(intent);
-                    ((Callback) getActivity()).onSelectedItem(gsonobj);
+                // startActivity(intent);
+                ((Callback) getActivity()).onSelectedItem(gsonobj);
             }
         });
         return rootView;
@@ -94,40 +94,34 @@ public class MainActivityFragment extends Fragment {
         }
 
         if (sortBy.equals(getString(R.string.pref_most_popular))) {
-            if (task == null) {
+            try {
+                String Str2 = task.execute("http://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=0df39df7b6499eab481883048862b53f").get();
 
-                Response.ResultsEntity Responseob = new Response.ResultsEntity();
+                if (Str2 == null) {
 
-
-            } else {
-                try {
-                    String Str2 = task.execute("http://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=0df39df7b6499eab481883048862b53f").get();
+                } else {
                     Response Responseobject = new Response();
                     Gson parser = new Gson();
                     Responseobject = parser.fromJson(Str2, Response.class);
                     myAdapter = new GridAdapter(getActivity(), Responseobject.getResults());
                     gridview.setAdapter(myAdapter);
-
-
-                } catch (InterruptedException e) {
-                    Log.e("main", e.toString());
-                } catch (ExecutionException e) {
-                    Log.e("main", e.toString());
                 }
+
+            } catch (InterruptedException e) {
+                Log.e("main", e.toString());
+            } catch (ExecutionException e) {
+                Log.e("main", e.toString());
             }
 
 
+        }
 
 
-
-                }
-
-
-            }
+    }
 
     public interface Callback {
         void onSelectedItem(Response.ResultsEntity movie);
     }
-        }
+}
 
 
